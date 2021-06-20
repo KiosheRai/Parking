@@ -7,7 +7,15 @@
         xmlns:local="clr-namespace:Course_Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Frame>
+    
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+            <GradientStop Color="#FF383838" Offset="0"/>
+            <GradientStop Color="#2F343A" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Frame x:Name="MainFrame">
         
     </Frame>
 </Window>
