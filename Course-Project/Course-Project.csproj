@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Confirmation.xaml.cs">
+      <DependentUpon>Confirmation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Entrance.xaml.cs">
       <DependentUpon>Entrance.xaml</DependentUpon>
     </Compile>
@@ -73,6 +76,10 @@
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQLbase.cs" />
+    <Page Include="Confirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Entrance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
