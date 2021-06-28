@@ -42,7 +42,24 @@ CREATE TABLE Payment(
 )
 GO
 
+INSERT INTO Report(car, place, arrival) values('1234 as-2', 1, ());
+Go
+
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
+INSERT INTO Place(status) values('Свободно');
 INSERT INTO Place(status) values('Свободно');
 GO
 
+UPDATE Place SET status = 'Занято' where id = 2;
+
+SELECT * FROM Operator
 SELECT * FROM Place
+SELECT * FROM Report
+SELECT * FROM Payment
