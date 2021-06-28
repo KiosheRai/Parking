@@ -3,7 +3,12 @@ CREATE DATABASE Parking
 USE Parking
 go
 
-CREATE TABLE Admin(
+DROP TABLE Operator;
+DROP TABLE Payment;
+DROP TABLE Report;
+DROP TABLE Place;
+
+CREATE TABLE Operator(
 	id int identity(1,1),
 	name nchar(15) not null,
 	surname nchar(15) not null,
@@ -14,7 +19,7 @@ GO
 
 CREATE TABLE Place(
 	id int identity(1,1),
-	status nchar(9) not null,
+	status nchar(9) default('Свободно') not null,
 	CONSTRAINT Prim_ID_Place PRIMARY KEY (id),
 )
 GO
@@ -36,3 +41,8 @@ CREATE TABLE Payment(
 	CONSTRAINT Fore_ID_Report FOREIGN KEY (id) REFERENCES Report([id])
 )
 GO
+
+INSERT INTO Place(status) values('Свободно');
+GO
+
+SELECT * FROM Place

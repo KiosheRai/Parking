@@ -24,5 +24,12 @@ namespace Course_Project
         {
             InitializeComponent();
         }
+
+        private void GoToEntrance(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Entrance.xaml", UriKind.Relative));
+        }
+
     }
 }
+
