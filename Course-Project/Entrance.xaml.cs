@@ -31,30 +31,44 @@ namespace Course_Project
 
         private void CheckFreePlace()// Проверка присутствия свободных мест
         {
-            DataTable table = SQLbase.Select($"select * from Place where status = 'Свободно'");
-
-            ComboBoxView.ItemsSource = table.DefaultView;
-
-            if (table.Rows.Count == 0)
+            using (DataTable table = SQLbase.Select($"select pay from Rate order by id desc"))
             {
-                //IEnumerable<Button> collection = grid1.Children.OfType<Button>();
-                //foreach(Button x in collection)
-                //{
-                //    if(x.Content.ToString() == "Продолжить")
-                //    {
-                //        x.IsVisible = false;
-                //    }
-                //}
-                ButtonContinue.Visibility = Visibility.Hidden;
-                NumberInput.Foreground = Brushes.Red;
-                NumberInput.IsReadOnly = true;
-                NumberInput.Text = "Мест нет!";
-                return;
+                if (table.Rows.Count == 0)
+                {
+                    RateOutput.Text = "Бесплатно";
+                }
+                else
+                {
+                    RateOutput.Text = $"{String.Format("{0:C}", table.Rows[0][0])} в час";
+                }
             }
 
-            NumberInput.IsReadOnly = false;
-            ButtonContinue.Visibility = Visibility.Visible;
-            NumberInput.Foreground = Brushes.Black;
+            using (DataTable table = SQLbase.Select($"select * from Place where status = 'Свободно'"))
+            {
+
+                ComboBoxView.ItemsSource = table.DefaultView;
+
+                if (table.Rows.Count == 0)
+                {
+                    //IEnumerable<Button> collection = grid1.Children.OfType<Button>();
+                    //foreach(Button x in collection)
+                    //{
+                    //    if(x.Content.ToString() == "Продолжить")
+                    //    {
+                    //        x.IsVisible = false;
+                    //    }
+                    //}
+                    ButtonContinue.Visibility = Visibility.Hidden;
+                    NumberInput.Foreground = Brushes.Red;
+                    NumberInput.IsReadOnly = true;
+                    NumberInput.Text = "Мест нет!";
+                    return;
+                }
+
+                NumberInput.IsReadOnly = false;
+                ButtonContinue.Visibility = Visibility.Visible;
+                NumberInput.Foreground = Brushes.Black;
+            }
         }
 
         private void Resume(object sender, RoutedEventArgs e)

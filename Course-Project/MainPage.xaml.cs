@@ -30,6 +30,10 @@ namespace Course_Project
             NavigationService.Navigate(new Uri("/Entrance.xaml", UriKind.Relative));
         }
 
+        private void GoToExit(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Payment.xaml", UriKind.Relative));
+        }
     }
 }
 

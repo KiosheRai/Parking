@@ -1,4 +1,4 @@
-﻿<Page x:Class="Course_Project.Entrance"
+﻿<Page x:Class="Course_Project.Payment"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:Course_Project"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Enter">
+      Title="Payment">
 
     <Page.Resources>
         <Style TargetType="Label">
@@ -21,37 +21,21 @@
     <Grid x:Name="grid1">
         <StackPanel>
             <Border Background="#FF673AB7">
-                <Label Content="Вход"/>
+                <Label Content="Выезд"/>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#7E40B8" ShadowDepth="0"/>
                 </Border.Effect>
             </Border>
 
 
-            <Grid Margin="15">
+            <Grid Margin="15 50">
 
                 <StackPanel Grid.RowSpan="2">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <StackPanel Margin="15">
-                        <Label Content="Номер машины"/>
+                    <Label Content="Номер машины"/>
                     <TextBox x:Name="NumberInput" Background="AliceBlue" 
-                             Margin="20" Width="200" materialDesign:HintAssist.Hint="0000 XX-0"
+                             Margin="20" Width="400" materialDesign:HintAssist.Hint="0000 XX-0"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                        </StackPanel>
-
-                        <StackPanel Margin="15">
-                            <Label Content="Тариф"/>
-                            <TextBox x:Name="RateOutput" Background="AliceBlue" 
-                             Margin="20" Width="130" IsReadOnly = "True"
-                             Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-                    <Label Content="Свободные места"/>
-                        <ComboBox x:Name="ComboBoxView" DisplayMemberPath="id" Background="AliceBlue"
-                          Margin="3" Style="{StaticResource MaterialDesignOutlinedComboBox}" SelectedIndex="0" />
-                    </StackPanel>
+  
                     <Button x:Name="ButtonContinue" Content="Продолжить" Width="200" Height="60" 
                             Margin="20" Click="Resume" Visibility="Visible"/>
                 </StackPanel>

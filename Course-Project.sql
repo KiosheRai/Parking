@@ -7,6 +7,7 @@ DROP TABLE Operator;
 DROP TABLE Payment;
 DROP TABLE Report;
 DROP TABLE Place;
+DROP TABLE Rate;
 
 CREATE TABLE Operator(
 	id int identity(1,1),
@@ -35,17 +36,25 @@ CREATE TABLE Report(
 GO
 
 CREATE TABLE Payment(
-	id int not null,
+	id int identity(1,1) not null,
 	departure smalldatetime not null,
 	pay smallmoney not null,
-	CONSTRAINT Fore_ID_Report FOREIGN KEY (id) REFERENCES Report([id])
+	car nchar(10) not null,
+	CONSTRAINT Prim_ID_Payment PRIMARY KEY (id),
 )
 GO
 
-INSERT INTO Report(car, place, arrival) values('1234 as-2', 1, ());
-Go
+CREATE TABLE Rate(
+	id int identity(1,1) not null,
+	ddate date not null,
+	pay smallmoney not null,
+	CONSTRAINT Prim_ID_Rate PRIMARY KEY (id),
+)
+GO
 
-INSERT INTO Place(status) values('Свободно');
+--INSERT INTO Report(car, place, arrival) values('1234 as-2', 1, ());
+--Go
+
 INSERT INTO Place(status) values('Свободно');
 INSERT INTO Place(status) values('Свободно');
 INSERT INTO Place(status) values('Свободно');
@@ -57,9 +66,17 @@ INSERT INTO Place(status) values('Свободно');
 INSERT INTO Place(status) values('Свободно');
 GO
 
+INSERT INTO Rate(ddate, pay) values('2021-05-12', 20);
+GO
+
+INSERT INTO Place(status) values('Свободно');
+
 UPDATE Place SET status = 'Занято' where id = 2;
+
+select * from Rate where id = max(id)
 
 SELECT * FROM Operator
 SELECT * FROM Place
 SELECT * FROM Report
 SELECT * FROM Payment
+SELECT * FROM Rate
