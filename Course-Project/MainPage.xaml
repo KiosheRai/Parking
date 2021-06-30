@@ -50,7 +50,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Окно въезда" Height="150" Width="150" FontSize="15" Click="GoToEntrance" />
-            <Button Content="Администратор" Height="150" Width="150" FontSize="15" Grid.Column="1"/>
+            <Button Content="Администратор" Height="150" Width="150" FontSize="15" Grid.Column="1" Click="GoToAdmin"/>
             <Button Content="Окно выезда" Height="150" Width="150" FontSize="15" Grid.Column="2" Click="GoToExit" />
         </Grid>
 

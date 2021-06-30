@@ -34,6 +34,11 @@ namespace Course_Project
         {
             NavigationService.Navigate(new Uri("/Payment.xaml", UriKind.Relative));
         }
+
+        private void GoToAdmin(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+        }
     }
 }
 

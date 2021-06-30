@@ -69,7 +69,11 @@ GO
 INSERT INTO Rate(ddate, pay) values('2021-05-12', 20);
 GO
 
-INSERT INTO Place(status) values('Свободно');
+INSERT INTO Operator(name, surname, pass) values('Адлер', 'Хвяц', '1234');
+GO
+
+INSERT INTO Operator(name, surname, pass) values('f', 'f', 'f');
+GO
 
 UPDATE Place SET status = 'Занято' where id = 2;
 
