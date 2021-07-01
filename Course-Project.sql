@@ -66,7 +66,7 @@ INSERT INTO Place(status) values('Свободно');
 INSERT INTO Place(status) values('Свободно');
 GO
 
-INSERT INTO Report(car, place, arrival) values ('9876 as-4', 8, '20-06-2021')
+INSERT INTO Report(car, place, arrival) values ('1', 8, '20-06-2021')
 
 INSERT INTO Rate(ddate, pay) values('12-05-2021', 20);
 GO
