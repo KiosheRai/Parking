@@ -54,14 +54,14 @@
                 </StackPanel>
 
                 <StackPanel Grid.Column="1">
-                    <Label FontSize="25" x:Name="CountOfDay" Content="Test"
-                           HorizontalAlignment="Left" Margin="20 5"/>
-                    <Label FontSize="25" x:Name="MoneyOfDay" Content="Test"
-                           HorizontalAlignment="Left" Margin="20 5"/>
-                    <Label FontSize="25" x:Name="CountAll" Content="Test"
-                           HorizontalAlignment="Left" Margin="20 5"/>
-                    <Label FontSize="25" x:Name="MoneyAll" Content="Test"
-                           HorizontalAlignment="Left" Margin="20 5"/>
+                    <Label FontSize="20" x:Name="CountOfDay" Content="Test"
+                           HorizontalAlignment="Left" Margin="10 5"/>
+                    <Label FontSize="20" x:Name="MoneyOfDay" Content="Test"
+                           HorizontalAlignment="Left" Margin="10 5"/>
+                    <Label FontSize="20" x:Name="CountAll" Content="Test"
+                           HorizontalAlignment="Left" Margin="10 5"/>
+                    <Label FontSize="20" x:Name="MoneyAll" Content="Test"
+                           HorizontalAlignment="Left" Margin="10 5"/>
 
                     <Label Content="Аккаунт:" Margin="0 10 0 0"/>
                     <StackPanel Orientation="Horizontal" Margin="20">

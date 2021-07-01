@@ -34,6 +34,9 @@ namespace Course_Project
         {
             listReports.ItemsSource = SQLbase.Select($"SELECT * FROM Report").DefaultView;
 
+            DateTime s = DateTime.Today;
+            DateTime s1 = s.AddDays(1);
+
             using (DataTable Place = SQLbase.Select($"select count(*) from Place where status = 'Занято'")) {
                 DataTable PlaceCount = SQLbase.Select($"select count(*) from Place");
                 ParkPlace.Content = $"{Place.Rows[0][0]}/{PlaceCount.Rows[0][0]}";
@@ -44,39 +47,39 @@ namespace Course_Project
                 CountAll.Content = $"Весь поток: {Place.Rows[0][0]}";
             }
 
-            using (DataTable Place = SQLbase.Select($"select count(*) from Payment where departure > '{DateTime.Today}' and departure < '{DateTime.Today.AddDays(1)}'"))
-            {
+            using (DataTable Place = SQLbase.Select($"select count(*) from Payment where departure >= '{s.Year}-{s.Month}-{s.Day}' and departure <= '{s1.Year}-{s1.Month}-{s1.Day}'"))
+            { 
                 CountOfDay.Content = $"Сегодняшний поток: {Place.Rows[0][0]}";
             }
 
             using (DataTable Place = SQLbase.Select($"select sum(pay) from Payment"))
             {
-                string s;
+                string str;
            
                 if (Place.Rows[0][0].ToString() == null || Place.Rows[0][0].ToString() == "" || Place.Rows[0][0].ToString() == " ")
                 {
 
-                    s = "0";
+                    str = "0";
                 }else
                 {
-                    s = String.Format("{0:C}", Place.Rows[0][0]);
+                    str = String.Format("{0:C}", Place.Rows[0][0]);
                 }
-                MoneyAll.Content = $"Общая прибыль: {s}";
+                MoneyAll.Content = $"Общая прибыль: {str}";
             }
 
-            using (DataTable Place = SQLbase.Select($"select sum(pay) from Payment where departure > '{DateTime.Today}' and departure < '{DateTime.Today.AddDays(1)}'"))
+            using (DataTable Place = SQLbase.Select($"select sum(pay) from Payment where departure >= '{s.Year}-{s.Month}-{s.Day}' and departure <= '{s1.Year}-{s1.Month}-{s1.Day}'"))
             {
 
-                string s;
+                string str;
                 if (Place.Rows[0][0].ToString() == null || Place.Rows[0][0].ToString() == "" || Place.Rows[0][0].ToString() == " ")
                 {
-                    s = "0";
+                    str = "0";
                 }
                 else
                 {
-                    s = String.Format("{0:C}",Place.Rows[0][0]);
+                    str = String.Format("{0:C}",Place.Rows[0][0]);
                 }
-                MoneyOfDay.Content = $"Сегодняшняя прибыль: {s}";
+                MoneyOfDay.Content = $"Сегодняшняя прибыль: {str}";
             }
         }
 

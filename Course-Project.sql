@@ -66,13 +66,27 @@ INSERT INTO Place(status) values('Ñâîáîäíî');
 INSERT INTO Place(status) values('Ñâîáîäíî');
 GO
 
-INSERT INTO Rate(ddate, pay) values('2021-05-12', 20);
+INSERT INTO Report(car, place, arrival) values ('9876 as-4', 8, '20-06-2021')
+
+INSERT INTO Rate(ddate, pay) values('12-05-2021', 20);
+GO
+
+INSERT INTO Payment(departure, pay, car) values('30-06-2021', 123, '8564 sa-7');
+INSERT INTO Payment(departure, pay, car) values('30-06-2021', 231, '2564 sa-7');
+GO
+
+INSERT INTO Payment(departure, pay, car) values('01-07-2021', 123, '8564 se-7');
+INSERT INTO Payment(departure, pay, car) values('01-07-2021', 133, '8214 se-7');
 GO
 
 INSERT INTO Operator(name, surname, pass) values('Àäëåğ', 'Õâÿö', '1234');
 GO
 
 INSERT INTO Operator(name, surname, pass) values('f', 'f', 'f');
+GO
+
+
+SET DATEFORMAT DMY;
 GO
 
 UPDATE Place SET status = 'Çàíÿòî' where id = 2;
@@ -84,3 +98,5 @@ SELECT * FROM Place
 SELECT * FROM Report
 SELECT * FROM Payment
 SELECT * FROM Rate
+
+select sum(pay) from Payment where departure >= '01-07-2021' and departure <= '02-07-2021'

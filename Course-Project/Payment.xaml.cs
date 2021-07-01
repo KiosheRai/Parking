@@ -50,18 +50,19 @@ namespace Course_Project
                 DateTime dateIn = DateTime.Parse(dateInput);
                 DateTime dateExit = DateTime.Now;
 
-                DataTable t = SQLbase.Select($"select pay, ddate from Rate order by id desc");
+                DataTable t = SQLbase.Select($"select pay, ddate from Rate order by ddate desc");
 
-                decimal rate = 0;
+                decimal rate = Convert.ToDecimal(t.Rows[0][0]);
 
                 if (t.Rows.Count != 0)
                 {
                     int i = 0;
                     try
                     {
+                       
                         while (DateTime.Parse(t.Rows[i][1].ToString()) > DateTime.Parse(table.Rows[0][3].ToString()))
                         {
-                            rate = Convert.ToDecimal(t.Rows[0][0]);
+                            rate = Convert.ToDecimal(t.Rows[i][0]);
                             i++;
                         }
                     }
@@ -72,14 +73,12 @@ namespace Course_Project
                 }
 
                 int hour = Convert.ToInt32((dateExit - dateIn).TotalHours) - 1;
-
                 if(hour < 0)
                 {
                     hour = 0;
                 }
 
                 decimal sum = hour * rate;
-                
                 SQLbase.Insert($"insert into Payment(departure, pay, car) values('{dateExit.ToString()}', {sum.ToString().Replace(",",".")}, '{num}');");
 
                 NavigationService nav;
