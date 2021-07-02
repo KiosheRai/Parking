@@ -41,46 +41,6 @@ namespace Course_Project
                 DataTable PlaceCount = SQLbase.Select($"select count(*) from Place");
                 ParkPlace.Content = $"{Place.Rows[0][0]}/{PlaceCount.Rows[0][0]}";
              }
-
-            using (DataTable Place = SQLbase.Select($"select count(*) from Payment"))
-            {
-                CountAll.Content = $"Весь поток: {Place.Rows[0][0]}";
-            }
-
-            using (DataTable Place = SQLbase.Select($"select count(*) from Payment where departure >= '{s.Year}-{s.Month}-{s.Day}' and departure <= '{s1.Year}-{s1.Month}-{s1.Day}'"))
-            { 
-                CountOfDay.Content = $"Сегодняшний поток: {Place.Rows[0][0]}";
-            }
-
-            using (DataTable Place = SQLbase.Select($"select sum(pay) from Payment"))
-            {
-                string str;
-           
-                if (Place.Rows[0][0].ToString() == null || Place.Rows[0][0].ToString() == "" || Place.Rows[0][0].ToString() == " ")
-                {
-
-                    str = "0";
-                }else
-                {
-                    str = String.Format("{0:C}", Place.Rows[0][0]);
-                }
-                MoneyAll.Content = $"Общая прибыль: {str}";
-            }
-
-            using (DataTable Place = SQLbase.Select($"select sum(pay) from Payment where departure >= '{s.Year}-{s.Month}-{s.Day}' and departure <= '{s1.Year}-{s1.Month}-{s1.Day}'"))
-            {
-
-                string str;
-                if (Place.Rows[0][0].ToString() == null || Place.Rows[0][0].ToString() == "" || Place.Rows[0][0].ToString() == " ")
-                {
-                    str = "0";
-                }
-                else
-                {
-                    str = String.Format("{0:C}",Place.Rows[0][0]);
-                }
-                MoneyOfDay.Content = $"Сегодняшняя прибыль: {str}";
-            }
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -95,6 +55,15 @@ namespace Course_Project
         private void Reg(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Reg.xaml", UriKind.Relative));
+        }
+
+        private void GoToEdit(object sender, RoutedEventArgs e)
+        {
+            NavigationService nav;
+            nav = NavigationService.GetNavigationService(this);
+
+            Price nextPage = new Price(login);
+            nav.Navigate(nextPage);
         }
     }
 }
