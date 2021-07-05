@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,11 @@ namespace Course_Project
         private void GoToAdmin(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Login.xaml", UriKind.Relative));
+        }
+
+        private void OpenHelp(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(Environment.CurrentDirectory + "\\help.chm") { UseShellExecute = true });
         }
     }
 }

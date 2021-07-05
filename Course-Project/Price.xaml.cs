@@ -74,7 +74,7 @@ namespace Course_Project
                 return;
             }
             else
-            {
+            {   
                 editButton.Foreground = Brushes.AliceBlue;
                 editButton.ToolTip = "";
             }

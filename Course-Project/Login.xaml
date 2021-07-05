@@ -21,7 +21,7 @@
     <Grid x:Name="grid1">
         <StackPanel>
             <Border Background="#FF673AB7">
-                <Label Content="Подтверждение"/>
+                <Label Content="Администратор"/>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" Color="#7E40B8" ShadowDepth="0"/>
                 </Border.Effect>
