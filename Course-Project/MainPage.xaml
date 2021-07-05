@@ -40,8 +40,9 @@
                 </Border.Effect>
                 <Label Content="Главное меню"/>
             </Border>
+            <Button Content="Помощь" Click="OpenHelp"/>
         </StackPanel>
-        
+
         <Grid Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
